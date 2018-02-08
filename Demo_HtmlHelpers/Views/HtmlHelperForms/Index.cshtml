@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    List<SelectListItem> states = new List<SelectListItem>()
+    {
+        new SelectListItem(){Value = "1", Text = "MI"},
+        new SelectListItem(){Value = "1", Text = "OH"}
+    };
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "HtmlHelperForms", FormMethod.Post))
+{
+    @Html.Label("FirstName", "First Name")
+    @Html.TextBox("FirstName", "", new { @class = "form-control" })
+
+    @Html.Label("LastName", "Last Name")
+    @Html.TextBox("LastName", "", new { @class = "form-control" })
+
+    @Html.Label("State", "State")
+    @Html.DropDownList("State", states, new { @class = "form-control" })
+
+    <input type="submit" value="Submit" class="btn btn-danger"/>
+} 
